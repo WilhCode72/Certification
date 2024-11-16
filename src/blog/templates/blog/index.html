@@ -7,5 +7,15 @@
 </head>
 <body>
     <h1>Bienvenu sur mon site</h1>
+
+    {% if user.is_authenticated %}
+        <!-- Bouton de déconnexion -->
+        <form method="POST" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Déconnexion</button>
+        </form>
+    {% else %}
+        <p><a href="{% url 'login' %}">Se connecter</a></p>
+    {% endif %}
 </body>
 </html>
