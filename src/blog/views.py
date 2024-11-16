@@ -7,3 +7,4 @@ def index(request):
 
 def article(request, numero_article):
     return render(request, f"blog/article-{numero_article}.html")
+

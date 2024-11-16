@@ -131,5 +131,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'authentication.CustomUser'
 
+DJANGO_SETTINGS_MODULE = 'DocBlog.settings'
+
+
 # LOGIN_REDIRECT_URL = '/'  # Page après connexion
 # LOGOUT_REDIRECT_URL = '/auth/login/'  # Page après déconnexion
