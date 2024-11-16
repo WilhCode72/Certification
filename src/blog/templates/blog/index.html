@@ -1,21 +1,50 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Le blog</title>
+    <title>Prévention Routière</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h1>Bienvenu sur mon site</h1>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Déconnexion</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Se connecter</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        <div class="hero">
+            <h1>Ensemble pour réduire les accidents routiers</h1>
+            <p>Découvrez des conseils pratiques et des solutions pour améliorer la sécurité sur les routes.</p>
+        </div>
+    </header>
 
-    {% if user.is_authenticated %}
-        <!-- Bouton de déconnexion -->
-        <form method="POST" action="{% url 'logout' %}">
-            {% csrf_token %}
-            <button type="submit">Déconnexion</button>
-        </form>
-    {% else %}
-        <p><a href="{% url 'login' %}">Se connecter</a></p>
-    {% endif %}
+    <section class="services">
+        <h2>Nos Services</h2>
+        <div class="card">
+            <h3>Prevenir</h3>
+            <p>Prevenez un accident en directe ici</p>
+        </div>
+        <div class="card">
+            <h3>Formation</h3>
+            <p>Cours de sécurité routière.</p>
+        </div>
+        <div class="card">
+            <h3>Statistiques</h3>
+            <p>Analyse des données sur les accidents.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Prévention Routière. Tous droits réservés.</p>
+    </footer>
 </body>
 </html>

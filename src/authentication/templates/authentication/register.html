@@ -1,6 +1,33 @@
-<h2>Inscription</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">S'inscrire</button>
-</form>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription AcciPrev</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <h1>AcciPrev</h1>
+            <h2>Inscription</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">S'inscrire</button>
+            </form>
+            <p>Vous avez déjà un compte ? 
+                <a href="{% url 'login' %}">
+                    <button type="button">Se connecter</button>
+                </a>
+            </p>
+        </div>
+        <div class="info-section">
+            <h2>Prévenir</h2>
+            <p>La prévention d'un accident à temps peut sauver des vies.</p>
+            <p><strong>170 police</strong><br><strong>180 pompier</strong></p>
+        </div>
+    </div>
+</body>  
+</html>

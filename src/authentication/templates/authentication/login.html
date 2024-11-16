@@ -1,13 +1,36 @@
-<h2>Connexion</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Se connecter</button>
-</form>
-
-<a href="{% url 'register' %}">
-    <button type="button">S'inscrire</button>
-</a>
-{% if error %}
-<p style="color: red;">{{ error }}</p>
-{% endif %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login AcciPrev</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <div class="container">
+      <div class="form-section">
+        <h1>AcciPrev</h1>
+        <h2>Connexion</h2>
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">Se connecter</button>
+        </form>
+        <p>Pas de compte ? 
+          <a href="{% url 'register' %}">
+            <button type="button">S'inscrire</button>
+          </a>
+        </p>
+        {% if error %}
+          <p style="color: red;">{{ error }}</p>
+        {% endif %}
+      </div>
+      <div class="info-section">
+        <h2>Prévenir</h2>
+        <p>La prévention d'un accident à temps peut sauver des vies.</p>
+        <p><strong>170 police</strong><br><strong>180 pompier</strong></p>
+      </div>
+    </div>
+  </body>  
+</html>

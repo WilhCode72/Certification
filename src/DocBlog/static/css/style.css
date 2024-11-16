@@ -1,4 +1,73 @@
-body{
-    background-color: black;
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+*{
+    font-family: "Quicksand", serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #f5f5f5;
+    text-align: center;
+    padding: 20px;
+    color: #2B2D42;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.hero {
+    background: #E31833;
     color: white;
+    padding: 50px 20px;
+}
+
+.hero h1 {
+    font-size: 2rem;
+}
+
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    flex: 1 1 calc(30% - 20px);
+    background: #fff;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: wheat;
+}
+
+.card{
+    background-color: #2B2D42;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex: 1 1 100%;
+    }
 }

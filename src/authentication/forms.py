@@ -1,16 +1,50 @@
 from django import forms
-from .models import CustomUser  
-# from django.contrib.auth.models import CustomUser  
+from .models import CustomUser
 
 class RegistrationForm(forms.ModelForm):
-    first_name = forms.CharField(max_length=30, required=True, label="Prénom")
-    last_name = forms.CharField(max_length=30, required=True, label="Nom")
-    email = forms.EmailField(required=True, label="Adresse e-mail")
-    password = forms.CharField(widget=forms.PasswordInput, label="Mot de passe")
-    confirm_password = forms.CharField(widget=forms.PasswordInput, label="Confirmer le mot de passe")
+    first_name = forms.CharField(
+        max_length=30,
+        required=True,
+        label="Prénom",
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',  # Classe CSS pour les champs
+            'placeholder': 'Entrez votre prénom'  # Texte d'exemple
+        })
+    )
+    last_name = forms.CharField(
+        max_length=30,
+        required=True,
+        label="Nom",
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Entrez votre nom'
+        })
+    )
+    email = forms.EmailField(
+        required=True,
+        label="Adresse e-mail",
+        widget=forms.EmailInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'exemple@mail.com'
+        })
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-control',
+            'placeholder': '••••••••'
+        }),
+        label="Mot de passe"
+    )
+    confirm_password = forms.CharField(
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Confirmez votre mot de passe'
+        }),
+        label="Confirmer le mot de passe"
+    )
 
     class Meta:
-        model = CustomUser  
+        model = CustomUser
         fields = ['first_name', 'last_name', 'email', 'username', 'password']
 
         help_texts = {
@@ -39,5 +73,17 @@ class RegistrationForm(forms.ModelForm):
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField(label="Nom d'utilisateur ou Email")
-    password = forms.CharField(widget=forms.PasswordInput, label="Mot de passe")
+    username = forms.CharField(
+        label="Nom d'utilisateur ou Email",
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Nom d\'utilisateur ou Email'
+        })
+    )
+    password = forms.CharField(
+        label="Mot de passe",
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-control',
+            'placeholder': '••••••••'
+        })
+    )
